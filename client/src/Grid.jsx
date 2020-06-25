@@ -9,16 +9,20 @@ class Grid extends Component{
         let cell = "";
         let cellId ;
         for (let i = 0; i< this.props.rows; i++){
-            for (let j = 0; j< this.props.cols; j++){
-                cellId = i.toString() + j ;
-                cell = this.props.gridArray[i][j] ? "cell isTrue" : "cell isFalse"
+            for (let j = 0; j< this.props.columns; j++){
+                cellId = i.toString() + "_" + j ;
+                cell = this.props.gridArray[i][j] ? "cell is alive" : "cell is dead"
                 rowsArray.push(
-                    <Cell cellId = {cellId} cell={cell} row={i} column = {j}/>
+                    <Cell cellId={cellId} cell={cell} row={i} column={j} key={cellId} selectCell={this.props.selectCell} />
+                    
                 )
             }
         }
+        console.log(rowsArray)
+        
         return(
-            <div className='Grid' style={{width:width}}>{rowsArray}</div>
+            <div className='Grid' style={{width:width}}>{rowsArray}
+            </div>
         )
     }
 }

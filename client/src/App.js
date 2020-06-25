@@ -23,7 +23,7 @@ class App extends Component {
         <div className="App-flex">
           <div className="App-generation">
             <h4>Generation : {this.state.generation}</h4>
-            <Grid gridArray={this.state.gridArray} rows={this.rows} columns={this.columns}/>
+            <Grid gridArray={this.state.gridArray} rows={this.rows} columns={this.columns} selectCell = {this.selectCell}/>
           </div>
           <div className="App-rules">
             <h4>Rules</h4>
