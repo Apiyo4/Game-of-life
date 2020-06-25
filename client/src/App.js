@@ -39,6 +39,34 @@ class App extends Component {
       gridArray : gridArrayClone
     })
   }
+  startButton =  () =>{
+    clearInterval(this.intervalId)
+    this.intervalId =  setInterval(this.play, this.speed)
+  }
+  play = ()=>{
+    let grid1 =  this.state.gridArray;
+    let grid2 = arrayClone(this.state.gridArray)
+    for(let i= 0; i<this.rows; i++){
+      for(let j=0; j<this.columns; j++){
+        let neighbors = 0;
+        if(i>0) if (grid1[i -1][j]) neighbors ++;
+        if(i>0 && j>0) if (grid1[i-1][j-1]) neighbors ++;
+        if (i>0 && j<this.columns - 1) if (grid1[i - 1][j + 1]) neighbors++;
+        if (j < this.columns - 1) if (grid1[i][j + 1]) neighbors++;
+        if (j > 0) if (grid1[i][j - 1]) neighbors++;
+        if (i < this.rows - 1) if (grid1[i + 1][j]) neighbors++;
+        if (i < this.rows - 1 && j > 0) if (grid1[i + 1][j - 1]) neighbors++;
+        if (i < this.rows - 1 && j < this.columns - 1) if (grid1[i + 1][j + 1]) neighbors++;
+        if (grid1[i][j] && (neighbors < 2 ||neighbors > 3)) grid2[i][j] = false;
+        if (!grid1[i][j] && neighbors === 3) grid2[i][j] = true;
+
+      }
+    }
+    this.setState({
+      gridArray : grid2,
+      generation : this.state.generation + 1
+    })
+  }
   componentDidMount(){
     this.randomRun();
   }
