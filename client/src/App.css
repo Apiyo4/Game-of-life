@@ -60,7 +60,7 @@
   width: 150px;
   line-height: 0;
   /* margin-top: 20px; */
-  /* margin-left: 0%; */
+  margin-left: 12%;
 }
 .isAlive{
   background-color: #61DBFB;
@@ -70,10 +70,10 @@
   /* background-color: #282c34; */
   background-color: white;
 }
-.flexSpace{
+/* .flexSpace{
   display:flex;
   justify-content: space-evenly;
-}
+} */
 .Buttons{
   padding-left: 3%;
 }

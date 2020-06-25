@@ -68,6 +68,19 @@ class App extends Component {
       generation : this.state.generation + 1
     })
   }
+  pauseButton = ()=>{
+    clearInterval(this.intervalId)
+  }
+  stopButton = ()=>{
+    clearInterval(this.intervalId);
+    let gridArrayCopy = Array(this.rows)
+      .fill()
+      .map(() => Array(this.columns).fill(false));
+    this.setState({
+      gridArray: gridArrayCopy,
+      generation: 0,
+    });
+  }
   componentDidMount(){
     this.randomRun();
   }
@@ -90,7 +103,7 @@ class App extends Component {
                 />
               </div>
               <div>
-                <Buttons startButton= {this.startButton}/>
+                <Buttons startButton= {this.startButton} pauseButton={this.pauseButton} stopButton= {this.stopButton}/>
               </div>
             </div>
           </div>
