@@ -18,7 +18,6 @@ class Grid extends Component{
                 )
             }
         }
-        console.log(rowsArray)
         
         return(
             <div className='Grid' style={{width:width}}>{rowsArray}

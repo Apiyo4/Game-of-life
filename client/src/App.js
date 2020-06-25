@@ -9,79 +9,80 @@ const arrayClone= (arr)=>{
 class App extends Component {
   constructor() {
     super();
-    this.speed = 50;
     this.rows = 25;
     this.columns = 25;
     this.state = {
+      inputSpeed: "",
+      isOpen : false,
+      speed : 50,
       generation: 0,
       gridArray: Array(this.rows)
         .fill()
         .map(() => Array(this.columns).fill(false)),
-      isPlaying : false
+      isPlaying: false,
     };
   }
   selectCell = (row, column) => {
-    if (!this.state.isPlaying){
+    if (!this.state.isPlaying) {
       let gridArrayClone = arrayClone(this.state.gridArray);
       gridArrayClone[row][column] = !gridArrayClone[row][column];
       this.setState({
         gridArray: gridArrayClone,
       });
-    } 
-    
+    }
   };
-  randomRun =  ()=>{
+  randomRun = () => {
     let gridArrayClone = arrayClone(this.state.gridArray);
-    for(let i = 0 ; i < this.rows ;  i++){
-      for(let j=0; j<this.columns; j++){
-        if (Math.floor(Math.random() * 5) === 1){
-            console.log("run", i, j);
-          gridArrayClone[i][j] = true
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.columns; j++) {
+        if (Math.floor(Math.random() * 5) === 1) {
+          gridArrayClone[i][j] = true;
         }
       }
     }
     this.setState({
-      gridArray : gridArrayClone
-    })
-  }
-  startButton =  () =>{
-    clearInterval(this.intervalId)
-    this.intervalId =  setInterval(this.play, this.speed)
-  }
-  play = ()=>{
+      gridArray: gridArrayClone,
+    });
+  };
+  startButton = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.play, this.state.speed);
+  };
+  play = () => {
     this.setState({
       isPlaying: true,
-    })
-    let grid1 =  this.state.gridArray;
-    let grid2 = arrayClone(this.state.gridArray)
-    for(let i= 0; i<this.rows; i++){
-      for(let j=0; j<this.columns; j++){
+    });
+    let grid1 = this.state.gridArray;
+    let grid2 = arrayClone(this.state.gridArray);
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.columns; j++) {
         let neighbors = 0;
-        if(i>0) if (grid1[i -1][j]) neighbors ++;
-        if(i>0 && j>0) if (grid1[i-1][j-1]) neighbors ++;
-        if (i>0 && j<this.columns - 1) if (grid1[i - 1][j + 1]) neighbors++;
+        if (i > 0) if (grid1[i - 1][j]) neighbors++;
+        if (i > 0 && j > 0) if (grid1[i - 1][j - 1]) neighbors++;
+        if (i > 0 && j < this.columns - 1) if (grid1[i - 1][j + 1]) neighbors++;
         if (j < this.columns - 1) if (grid1[i][j + 1]) neighbors++;
         if (j > 0) if (grid1[i][j - 1]) neighbors++;
         if (i < this.rows - 1) if (grid1[i + 1][j]) neighbors++;
         if (i < this.rows - 1 && j > 0) if (grid1[i + 1][j - 1]) neighbors++;
-        if (i < this.rows - 1 && j < this.columns - 1) if (grid1[i + 1][j + 1]) neighbors++;
-        if (grid1[i][j] && (neighbors < 2 ||neighbors > 3)) grid2[i][j] = false;
+        if (i < this.rows - 1 && j < this.columns - 1)
+          if (grid1[i + 1][j + 1]) neighbors++;
+        if (grid1[i][j] && (neighbors < 2 || neighbors > 3))
+          grid2[i][j] = false;
         if (!grid1[i][j] && neighbors === 3) grid2[i][j] = true;
-
       }
     }
     this.setState({
-      gridArray : grid2,
-      generation : this.state.generation + 1
-    })
-  }
-  pauseButton = ()=>{
+      gridArray: grid2,
+      generation: this.state.generation + 1,
+    });
+  };
+  pauseButton = () => {
     this.setState({
       isPlaying: false,
     });
-    clearInterval(this.intervalId)
-  }
-  stopButton = ()=>{
+    clearInterval(this.intervalId);
+  };
+  stopButton = () => {
     this.setState({
       isPlaying: false,
     });
@@ -93,12 +94,37 @@ class App extends Component {
       gridArray: gridArrayCopy,
       generation: 0,
     });
+  };
+  randomButton = () => {
+    this.randomRun();
+    this.startButton();
+  };
+  onValueChange = (event) => {
+    const { value } = event.target;
+    this.setState({
+      inputSpeed: value,
+    });
+  };
+  changeSpeed = (event) =>{
+      
+    let newSpeed = parseInt(this.state.inputSpeed)
+    console.log("speed", newSpeed);
+    debugger
+    
+     this.setState({
+       speed: newSpeed,
+       inputSpeed: "",
+       isOpen: false
+     });
+     console.log("speed", this.state.speed)
   }
-  randomButton=()=>{
-    this.randomRun()
-    this.startButton()
+  openInputForm = () =>{
+    this.pauseButton();
+    this.setState({
+      isOpen : !this.state.isOpen
+    })
   }
-  componentDidMount(){
+  componentDidMount() {
     this.randomRun();
   }
   render() {
@@ -110,7 +136,7 @@ class App extends Component {
         <div className="App-flex">
           <div className="App-generation">
             <h2>Generation : {this.state.generation}</h2>
-            <div className='flexSpace'>
+            <div className="flexSpace">
               <div>
                 <Grid
                   gridArray={this.state.gridArray}
@@ -120,7 +146,18 @@ class App extends Component {
                 />
               </div>
               <div>
-                <Buttons startButton= {this.startButton} pauseButton={this.pauseButton} stopButton= {this.stopButton} randomButton= {this.randomButton}/>
+                <Buttons
+                  startButton={this.startButton}
+                  pauseButton={this.pauseButton}
+                  stopButton={this.stopButton}
+                  randomButton={this.randomButton}
+                  changeSpeed =  {this.changeSpeed}
+                  onValueChange =  {this.onValueChange}
+                  inputSpeed = {this.state.inputSpeed}
+                  openInputForm =  {this.openInputForm}
+                  isOpen =  {this.state.isOpen}
+                  speed =  {this.state.speed}
+                />
               </div>
             </div>
           </div>
