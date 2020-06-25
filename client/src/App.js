@@ -5,8 +5,12 @@ import Grid from './Grid';
 class App extends Component {
   constructor(){
     super();
+    this.speed = 50;
+    this.rows = 25;
+    this.columns = 25;
     this.state = {
       generation: 0,
+      gridArray : Array(this.rows).fill().map(()=>Array(this.columns).fill(false))
     }
   }
   render(){
@@ -18,7 +22,7 @@ class App extends Component {
         <div className="App-flex">
           <div className="App-generation">
             <h4>Generation : {this.state.generation}</h4>
-            <Grid />
+            <Grid gridArray={this.state.gridArray} rows={this.state.rows} columns={this.state.columns}/>
           </div>
           <div className="App-rules">
             <h4>Rules</h4>
