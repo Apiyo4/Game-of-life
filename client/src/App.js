@@ -25,6 +25,23 @@ class App extends Component {
       gridArray : gridArrayClone
     })
   };
+  randomRun =  ()=>{
+    let gridArrayClone = arrayClone(this.state.gridArray);
+    for(let i = 0 ; i < this.rows ;  i++){
+      for(let j=0; j<this.columns; j++){
+        if (Math.floor(Math.random() * 5) === 1){
+            console.log("run", i, j);
+          gridArrayClone[i][j] = true
+        }
+      }
+    }
+    this.setState({
+      gridArray : gridArrayClone
+    })
+  }
+  componentDidMount(){
+    this.randomRun();
+  }
   render() {
     return (
       <div className="App">
