@@ -9,6 +9,7 @@ class Buttons extends Component{
                     <button onClick={this.props.pauseButton}>Pause</button>
                 
                     <button onClick={this.props.stopButton}>Stop</button>
+                    <button onClick={this.props.randomButton}>Random</button>
             </div>
         )
     }

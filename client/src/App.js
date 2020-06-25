@@ -94,6 +94,10 @@ class App extends Component {
       generation: 0,
     });
   }
+  randomButton=()=>{
+    this.randomRun()
+    this.startButton()
+  }
   componentDidMount(){
     this.randomRun();
   }
@@ -116,7 +120,7 @@ class App extends Component {
                 />
               </div>
               <div>
-                <Buttons startButton= {this.startButton} pauseButton={this.pauseButton} stopButton= {this.stopButton}/>
+                <Buttons startButton= {this.startButton} pauseButton={this.pauseButton} stopButton= {this.stopButton} randomButton= {this.randomButton}/>
               </div>
             </div>
           </div>
