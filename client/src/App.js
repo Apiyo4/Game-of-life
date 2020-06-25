@@ -17,14 +17,18 @@ class App extends Component {
       gridArray: Array(this.rows)
         .fill()
         .map(() => Array(this.columns).fill(false)),
+      isPlaying : false
     };
   }
   selectCell = (row, column) => {
-    let gridArrayClone = arrayClone(this.state.gridArray);
-    gridArrayClone[row][column] = !gridArrayClone[row][column]
-    this.setState({
-      gridArray : gridArrayClone
-    })
+    if (!this.state.isPlaying){
+      let gridArrayClone = arrayClone(this.state.gridArray);
+      gridArrayClone[row][column] = !gridArrayClone[row][column];
+      this.setState({
+        gridArray: gridArrayClone,
+      });
+    } 
+    
   };
   randomRun =  ()=>{
     let gridArrayClone = arrayClone(this.state.gridArray);
@@ -45,6 +49,9 @@ class App extends Component {
     this.intervalId =  setInterval(this.play, this.speed)
   }
   play = ()=>{
+    this.setState({
+      isPlaying: true,
+    })
     let grid1 =  this.state.gridArray;
     let grid2 = arrayClone(this.state.gridArray)
     for(let i= 0; i<this.rows; i++){
@@ -69,9 +76,15 @@ class App extends Component {
     })
   }
   pauseButton = ()=>{
+    this.setState({
+      isPlaying: false,
+    });
     clearInterval(this.intervalId)
   }
   stopButton = ()=>{
+    this.setState({
+      isPlaying: false,
+    });
     clearInterval(this.intervalId);
     let gridArrayCopy = Array(this.rows)
       .fill()
