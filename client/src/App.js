@@ -14,6 +14,7 @@ class App extends Component {
     }
   }
   render(){
+  
     return (
       <div className="App">
         <header className="App-header">
@@ -22,7 +23,7 @@ class App extends Component {
         <div className="App-flex">
           <div className="App-generation">
             <h4>Generation : {this.state.generation}</h4>
-            <Grid gridArray={this.state.gridArray} rows={this.state.rows} columns={this.state.columns}/>
+            <Grid gridArray={this.state.gridArray} rows={this.rows} columns={this.columns}/>
           </div>
           <div className="App-rules">
             <h4>Rules</h4>
