@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Grid from './Grid';
+import Buttons from './Buttons';
 
 const arrayClone= (arr)=>{
   return JSON.parse(JSON.stringify(arr))
@@ -79,12 +80,19 @@ class App extends Component {
         <div className="App-flex">
           <div className="App-generation">
             <h2>Generation : {this.state.generation}</h2>
-            <Grid
-              gridArray={this.state.gridArray}
-              rows={this.rows}
-              columns={this.columns}
-              selectCell={this.selectCell}
-            />
+            <div className='flexSpace'>
+              <div>
+                <Grid
+                  gridArray={this.state.gridArray}
+                  rows={this.rows}
+                  columns={this.columns}
+                  selectCell={this.selectCell}
+                />
+              </div>
+              <div>
+                <Buttons startButton= {this.startButton}/>
+              </div>
+            </div>
           </div>
           <div className="App-rules">
             <h2>Rules</h2>

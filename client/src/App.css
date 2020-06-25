@@ -29,13 +29,12 @@
 }
 .App-rules{
   max-width: 16%;
-  padding-right: 8%;
 }
 
 .App-generation{
 /* text-align: center;
  */
- padding-left: 3%;
+ padding-left: 8%;
 }
 .App-generation h2{
   padding-left: 10%;
@@ -61,7 +60,7 @@
   width: 150px;
   line-height: 0;
   /* margin-top: 20px; */
-  margin-left: 12%;
+  /* margin-left: 0%; */
 }
 .isAlive{
   background-color: #61DBFB;
@@ -70,4 +69,11 @@
 .isDead{
   /* background-color: #282c34; */
   background-color: white;
+}
+.flexSpace{
+  display:flex;
+  justify-content: space-evenly;
+}
+.Buttons{
+  padding-left: 3%;
 }
