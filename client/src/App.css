@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+
   background-color: #282c34;
   
 }
@@ -21,21 +21,23 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  text-align: center;
 }
-.App-footer {
+.App-flex{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 1vmin);
+  justify-content: space-around;
+}
+.App-rules{
+  max-width: 20%;
 }
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-generation{
+text-align: center;
+}
+.App-about{
+  max-width: 40%;
+  margin: auto;
+}
+.App-about h2{
+  text-align: center;
 }
