@@ -61,3 +61,10 @@
   /* margin-top: 20px; */
   margin-left: 12%;
 }
+.isAlive{
+  background-color: #61DBFB;
+
+}
+.isDead{
+  background-color: #282c34;
+}
