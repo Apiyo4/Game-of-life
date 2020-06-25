@@ -13,6 +13,7 @@ class App extends Component {
       gridArray : Array(this.rows).fill().map(()=>Array(this.columns).fill(false))
     }
   }
+  
   render(){
   
     return (
@@ -22,11 +23,11 @@ class App extends Component {
         </header>
         <div className="App-flex">
           <div className="App-generation">
-            <h4>Generation : {this.state.generation}</h4>
+            <h2>Generation : {this.state.generation}</h2>
             <Grid gridArray={this.state.gridArray} rows={this.rows} columns={this.columns} selectCell = {this.selectCell}/>
           </div>
           <div className="App-rules">
-            <h4>Rules</h4>
+            <h2>Rules</h2>
             <ul>
               <li>
                 Any live cell with fewer than two live neighbours dies, as if by
