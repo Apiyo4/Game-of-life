@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpeedForm from './SpeedForm.jsx'
-import { PlayCircleOutlined, PauseCircleOutlined, StopOutlined, SnippetsOutlined } from '@ant-design/icons';
+import { PlayCircleOutlined, PauseCircleOutlined, StopOutlined, RetweetOutlined } from '@ant-design/icons';
 class Buttons extends Component{
     render(){
         return(
@@ -20,7 +20,7 @@ class Buttons extends Component{
                     <span>Stop</span>
                         </button>
                     <button className = 'random'onClick={this.props.randomButton}>
-                    <SnippetsOutlined />
+                    <RetweetOutlined />
                     <span>Random</span>
                         </button>
                 <p> Default speed is<strong> {this.props.speed}</strong> , want to change it,

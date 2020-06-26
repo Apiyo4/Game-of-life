@@ -151,12 +151,12 @@ class App extends Component {
                   pauseButton={this.pauseButton}
                   stopButton={this.stopButton}
                   randomButton={this.randomButton}
-                  changeSpeed =  {this.changeSpeed}
-                  onValueChange =  {this.onValueChange}
-                  inputSpeed = {this.state.inputSpeed}
-                  openInputForm =  {this.openInputForm}
-                  isOpen =  {this.state.isOpen}
-                  speed =  {this.state.speed}
+                  changeSpeed={this.changeSpeed}
+                  onValueChange={this.onValueChange}
+                  inputSpeed={this.state.inputSpeed}
+                  openInputForm={this.openInputForm}
+                  isOpen={this.state.isOpen}
+                  speed={this.state.speed}
                 />
               </div>
             </div>
@@ -183,7 +183,7 @@ class App extends Component {
             </ul>
           </div>
         </div>
-        <div className="App-about">
+        <div className="App-about" id={this.state.isOpen ? "removeMargin" : null}>
           <h2>About</h2>
           <p>
             The Game of Life is a two dimensional universe in which patterns

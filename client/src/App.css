@@ -123,3 +123,6 @@ input[type=text] {
 .random{
   background-color: #DE5EC7;
 }
+#removeMargin{
+  margin-top: -6%;
+}
