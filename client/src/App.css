@@ -1,0 +1,128 @@
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  text-align: center;
+  /* box-shadow: 0px 2px 15px -8px rgba(0, 0, 0, 0.42); */
+  box-shadow: 0 2px #cbcbcb, 0 -0.2em 0.4em #cbcbcb;
+  max-width:74%;
+  margin: auto;
+}
+.App-flex{
+  display: flex;
+  justify-content: space-around;
+}
+.App-rules{
+  max-width: 16%;
+  margin-right: 10%;
+}
+
+.App-generation{
+ padding-left: 8%;
+ margin-bottom: 0;
+ padding-bottom: 0;
+}
+.App-generation h2{
+  padding-left: 2%;
+}
+.App-about{
+  max-width: 70%;
+  margin: auto;
+  font-size: 18px;
+}
+.App-about h2{
+  text-align: center;
+}
+.cell {
+  display: inline-block;
+  /* border: 1px solid white; */
+  border: 1px solid #171123;
+  width: 26px;
+  height: 15px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+}
+.Grid {
+  width: 150px;
+  line-height: 0;
+  /* margin-top: 20px; */
+  margin-left: 3%;
+  
+}
+.isAlive{
+  background-color: #0affed;
+  /* background-color: #5EDEB6 */
+  /* background-color: #a4031f; */
+
+}
+.isDead{
+  /* background-color: #282c34; */
+  background-color: transparent;
+}
+/* .flexSpace{
+  display:flex;
+  justify-content: space-evenly;
+} */
+.Buttons{
+  margin: 3%;
+  padding-left: 5%;
+}
+.Buttons button{
+    /* margin: 3%; */
+    margin: 1% 4% 1% 4%;
+    padding: 1%;
+    padding-right: 2%;
+    border-radius: 30%;
+}
+.Buttons p{
+  font-size: 16px;
+}
+.Buttons p span{
+  color: blue;
+}
+h2, h4{
+  margin: 1% 0 1% 0;
+}
+.Buttons button span{
+  margin-left: 10px;
+}
+form{
+  position: relative;
+  top: -42px;
+  left: 58%;
+  margin-bottom: 0;
+}
+form button{
+  border-radius: 10% !important;
+  background-color: #0197f6;
+  position: relative;
+  top: -34px;
+  left: 12%;
+  margin-bottom: 0;
+  border: 1px solid #171123;
+  
+}
+input[type=text] {
+  margin-left: 2%;
+  border: none;
+  border-bottom: 2px solid #171123;
+  width: 12%;
+}
+.stop{
+  background-color: #DE605E;
+}
+.start{
+  background-color: #5EDE76;
+}
+.pause{
+  background-color: #5EDEB6;
+}
+.random{
+  background-color: #DE5EC7;
+}
+#removeMargin{
+  margin-top: -6%;
+}
